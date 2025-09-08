@@ -16,6 +16,7 @@ openai
 langchain
 langchain-openai
 tiktoken
+httpx>=0.25.0
 
 # Config
 python-dotenv
