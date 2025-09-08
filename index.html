@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЮрГид KZ (Beta)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <a href="/" id="logo">ЮрГид KZ</a>
+            <ul id="nav">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Профиль</a></li>
+                <li><a href="#">Сообщения</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main-container" class="container">
+        <div id="timeline">
+            <div id="composer">
+                <h2>Что у вас случилось?</h2>
+                <textarea id="prompt-input" placeholder="Спросите вашего юридического помощника..."></textarea>
+                <div id="composer-footer">
+                    <span id="char-counter">140</span>
+                    <button id="send-button">Отправить</button>
+                </div>
+            </div>
+            <div id="chat-box">
+                <!-- Messages will be appended here -->
+            </div>
+        </div>
+        <div id="sidebar">
+            <div class="sidebar-box">
+                <h3>О проекте</h3>
+                <p>Это демонстрация юридического помощника, стилизованная под старый дизайн Твиттера. Введите ваш вопрос в поле слева.</p>
+            </div>
+            <div class="sidebar-box">
+                <h3>Тренды</h3>
+                <ul>
+                    <li><a href="#">#КонституцияРК</a></li>
+                    <li><a href="#">#НалоговыйКодекс</a></li>
+                    <li><a href="#">#ТрудовыеСпоры</a></li>
+                    <li><a href="#">#СделкиСНедвижимостью</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>

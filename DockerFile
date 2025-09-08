@@ -1,0 +1,29 @@
+# Используем официальный образ Python 3.10
+FROM python:3.10-slim
+
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Копируем файлы проекта
+COPY requirements.txt .
+COPY bot.py .
+COPY database.py .
+COPY handlers.py .
+COPY logger.py .
+COPY models.py .
+COPY prompts.py .
+COPY search.py .
+COPY utils.py .
+COPY .env .
+
+# Устанавливаем зависимости
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Создаём директорию для данных (база данных и логи)
+RUN mkdir -p /app/data/logs
+
+# Указываем том для данных
+VOLUME /app/data
+
+# Команда для запуска бота
+CMD ["python", "bot.py"]

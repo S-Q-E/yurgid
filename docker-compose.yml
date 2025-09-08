@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yurgid_bot
+    restart: unless-stopped  # Перезапуск при сбоях, кроме явной остановки
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data  # Том для базы данных и логов
+    environment:
+      - PYTHONUNBUFFERED=1  # Для вывода логов в реальном времени
+
+volumes:
+  data:
