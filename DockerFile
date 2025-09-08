@@ -1,29 +1,19 @@
-# Используем официальный образ Python 3.10
+# 1. Используем официальный образ Python. Версия 3.10, как у вас в venv.
 FROM python:3.10-slim
 
-# Устанавливаем рабочую директорию
+# 2. Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
 
-# Копируем файлы проекта
+# 3. Копируем файл с зависимостями
 COPY requirements.txt .
-COPY bot.py .
-COPY database.py .
-COPY handlers.py .
-COPY logger.py .
-COPY models.py .
-COPY prompts.py .
-COPY search.py .
-COPY utils.py .
-COPY .env .
 
-# Устанавливаем зависимости
+# 4. Устанавливаем зависимости
+# --no-cache-dir уменьшает размер итогового образа
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Создаём директорию для данных (база данных и логи)
-RUN mkdir -p /app/data/logs
+# 5. Копируем все файлы проекта в рабочую директорию (учитывая .dockerignore)
+COPY . .
 
-# Указываем том для данных
-VOLUME /app/data
-
-# Команда для запуска бота
-CMD ["python", "bot.py"]
+# 6. Указываем команду, которая будет запускаться при старте контейнера
+# Замените main.py на ваш главный исполняемый файл, если он другой (например, bot.py)
+CMD ["python", "main.py"]
