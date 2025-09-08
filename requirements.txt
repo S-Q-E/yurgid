@@ -8,7 +8,7 @@ uvicorn
 # Database
 sqlalchemy
 psycopg2-binary
-sqlalchemy-pgvector
+pgvector
 alembic
 
 # AI & LangChain
